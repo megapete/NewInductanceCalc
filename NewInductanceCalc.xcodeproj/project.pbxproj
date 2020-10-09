@@ -10,6 +10,10 @@
 		D3BC1C4F252FD6CA00105C47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC1C4E252FD6CA00105C47 /* AppDelegate.swift */; };
 		D3BC1C51252FD6CA00105C47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3BC1C50252FD6CA00105C47 /* Assets.xcassets */; };
 		D3BC1C54252FD6CA00105C47 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BC1C52252FD6CA00105C47 /* MainMenu.xib */; };
+		D3BC1C5E252FD71D00105C47 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC1C5D252FD71D00105C47 /* AppController.swift */; };
+		D3BC1C62252FD78400105C47 /* libgsl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BC1C61252FD78400105C47 /* libgsl.a */; };
+		D3BC1C6B252FDE6E00105C47 /* PCH_Defs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC1C69252FDE6E00105C47 /* PCH_Defs.swift */; };
+		D3BC1C6C252FDE6E00105C47 /* GlobalDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC1C6A252FDE6E00105C47 /* GlobalDefs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,11 @@
 		D3BC1C53252FD6CA00105C47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D3BC1C55252FD6CA00105C47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3BC1C56252FD6CA00105C47 /* NewInductanceCalc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NewInductanceCalc.entitlements; sourceTree = "<group>"; };
+		D3BC1C5D252FD71D00105C47 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		D3BC1C61252FD78400105C47 /* libgsl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgsl.a; path = ../GNU_Scientific_Library/lib/libgsl.a; sourceTree = "<group>"; };
+		D3BC1C64252FD80800105C47 /* NewInductanceCalc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NewInductanceCalc-Bridging-Header.h"; sourceTree = "<group>"; };
+		D3BC1C69252FDE6E00105C47 /* PCH_Defs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCH_Defs.swift; path = ../../../../Dropbox/MyProjects/PCH_Defs.swift; sourceTree = "<group>"; };
+		D3BC1C6A252FDE6E00105C47 /* GlobalDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalDefs.swift; path = ../../../../Dropbox/MyProjects/GlobalDefs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3BC1C62252FD78400105C47 /* libgsl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +47,7 @@
 			children = (
 				D3BC1C4D252FD6CA00105C47 /* NewInductanceCalc */,
 				D3BC1C4C252FD6CA00105C47 /* Products */,
+				D3BC1C60252FD78400105C47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,12 +63,24 @@
 			isa = PBXGroup;
 			children = (
 				D3BC1C4E252FD6CA00105C47 /* AppDelegate.swift */,
+				D3BC1C6A252FDE6E00105C47 /* GlobalDefs.swift */,
+				D3BC1C69252FDE6E00105C47 /* PCH_Defs.swift */,
+				D3BC1C5D252FD71D00105C47 /* AppController.swift */,
 				D3BC1C50252FD6CA00105C47 /* Assets.xcassets */,
 				D3BC1C52252FD6CA00105C47 /* MainMenu.xib */,
 				D3BC1C55252FD6CA00105C47 /* Info.plist */,
 				D3BC1C56252FD6CA00105C47 /* NewInductanceCalc.entitlements */,
+				D3BC1C64252FD80800105C47 /* NewInductanceCalc-Bridging-Header.h */,
 			);
 			path = NewInductanceCalc;
+			sourceTree = "<group>";
+		};
+		D3BC1C60252FD78400105C47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3BC1C61252FD78400105C47 /* libgsl.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +114,7 @@
 				TargetAttributes = {
 					D3BC1C4A252FD6CA00105C47 = {
 						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1200;
 					};
 				};
 			};
@@ -129,7 +153,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3BC1C6B252FDE6E00105C47 /* PCH_Defs.swift in Sources */,
 				D3BC1C4F252FD6CA00105C47 /* AppDelegate.swift in Sources */,
+				D3BC1C6C252FDE6E00105C47 /* GlobalDefs.swift in Sources */,
+				D3BC1C5E252FD71D00105C47 /* AppController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,18 +294,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NewInductanceCalc/NewInductanceCalc.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = WPGZ62544B;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../GNU_Scientific_Library/include\"";
 				INFOPLIST_FILE = NewInductanceCalc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../GNU_Scientific_Library/lib\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huberistech.NewInductanceCalc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NewInductanceCalc/NewInductanceCalc-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -288,18 +320,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NewInductanceCalc/NewInductanceCalc.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = WPGZ62544B;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../GNU_Scientific_Library/include\"";
 				INFOPLIST_FILE = NewInductanceCalc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../GNU_Scientific_Library/lib\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huberistech.NewInductanceCalc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NewInductanceCalc/NewInductanceCalc-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
