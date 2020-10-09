@@ -6,6 +6,10 @@
 //
 
 import Cocoa
+import Accelerate
+
+fileprivate let relError = 1.0E-8
+fileprivate let absError = 1.0E-12
 
 class AppController: NSObject {
 
@@ -33,6 +37,31 @@ class AppController: NSObject {
         let E = gsl_sf_ellint_Ecomp(kI, gsl_mode_t(GSL_PREC_DOUBLE))
         
         return 4.0 / (3.0 * π * beta * kI_cubed) * ((2.0 * kI_squared - 1.0) * E + (1.0 - kI_squared) * K - kI_cubed)
+    }
+    
+    func J1(alpha:Double) -> Double
+    {
+        let quadrature = Quadrature(integrator: .qags(maxIntervals: 10), absoluteTolerance: absError, relativeTolerance: relError)
+        
+        let integrationResult = quadrature.integrate(over: 0.0...(π / 2.0)) { x in
+            
+            let numerator = sqrt(1.0 + alpha * alpha + 2.0 * alpha * cos(x)) + 1.0 + alpha * cos(x)
+            let denom = sqrt(1.0 + alpha * alpha - 2.0 * alpha * sin(x) + alpha * sin(x) - 1)
+            
+            return log(numerator / denom)
+        }
+        
+        switch integrationResult {
+        
+        // As of Xcode 11.4, this is the correct way to unwrap a tuple in a switch() pattern
+        case .success(let resultTuple):
+            let (result, _ /* absError */) = resultTuple
+            return result * 2.0 / π
+        
+        case .failure(let error):
+            ALog("Error calling integration routine. The error is: \(error)")
+            return 0.0
+        }
     }
     
 }
